@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Assign to a variable IN_DIR the path /home/brainhacker/inflammation_proj/raw_data
+IN_DIR=${HOME}/inflammation_proj/raw_data
+
+# Assign to a variable DAY an integer between 1 and 40:
+DAY=16
+
+# Assigns to an array csv_files all CSV files which : 
+    # are in subdirectores of $(in_DIR), 
+    # include “inflammation” in their filenames 
+csv_files=(${HOME}/inflammation_proj/raw_data/*/inflammation*.csv)
+echo ${csv_files[@]}
+
+# Loop on each item of the resulting array and print :
+for item in ${csv_files[@]}; do
+    # The name of the file parent directory (e.g MN_region)
+    echo "${item%/*}"
+done
+
