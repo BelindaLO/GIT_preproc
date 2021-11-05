@@ -16,5 +16,7 @@ echo ${csv_files[@]}
 for item in ${csv_files[@]}; do
     # The name of the file parent directory (e.g MN_region)
     echo "${item%/*}"
+    # the name of the file
+    echo "${item##*/}"
 done
 
